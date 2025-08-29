@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logic & Chaos — Mini Game Arcade</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <h1>🧠 Logic & 🎲 Chaos — Mini Game Arcade</h1>
+    <p class="tagline">Smart puzzles + silly randomness. Have fun!</p>
+  </header>
+
+  <main class="container">
+    <aside class="sidebar">
+      <h2>Games</h2>
+      <nav>
+        <button class="nav-btn" data-target="tictactoe">Tic‑Tac‑Toe (AI)</button>
+        <button class="nav-btn" data-target="lightsout">Lights Out</button>
+        <button class="nav-btn" data-target="memory">Memory Match</button>
+        <button class="nav-btn" data-target="monty">Monty Hall Lab</button>
+        <button class="nav-btn" data-target="nonsense">Nonsense Button</button>
+        <button class="nav-btn" data-target="lucklab">Luck Lab</button>
+      </nav>
+      <footer class="footer">
+        <button id="themeToggle" class="theme">Toggle Theme</button>
+      </footer>
+    </aside>
+
+    <section class="stage">
+      <!-- Tic Tac Toe -->
+      <section id="tictactoe" class="panel active">
+        <h2>🤖 Tic‑Tac‑Toe (Unbeatable AI)</h2>
+        <p>Try to beat the minimax AI. Good luck!</p>
+        <div class="t3-grid" id="t3grid"></div>
+        <div class="row">
+          <button id="t3reset">Reset</button>
+          <span id="t3status">Your turn (X)</span>
+        </div>
+      </section>
+
+      <!-- Lights Out -->
+      <section id="lightsout" class="panel">
+        <h2>💡 Lights Out</h2>
+        <p>Toggle tiles to turn all lights off. Clicking a tile toggles it and its neighbors.</p>
+        <div id="loGrid" class="lo-grid"></div>
+        <div class="row">
+          <button id="loShuffle">Shuffle</button>
+          <span id="loStatus"></span>
+        </div>
+      </section>
+
+      <!-- Memory Match -->
+      <section id="memory" class="panel">
+        <h2>🃏 Memory Match</h2>
+        <p>Flip cards to find all pairs as fast as you can.</p>
+        <div id="memGrid" class="mem-grid"></div>
+        <div class="row">
+          <button id="memReset">New Game</button>
+          <span id="memStatus"></span>
+        </div>
+      </section>
+
+      <!-- Monty Hall Lab -->
+      <section id="monty" class="panel">
+        <h2>🚪 Monty Hall Lab</h2>
+        <p>Pick a door. Host opens a goat door. Choose to stay or switch. Track your win rate.</p>
+        <div class="monty">
+          <div class="doors">
+            <button class="door" data-i="0">🚪</button>
+            <button class="door" data-i="1">🚪</button>
+            <button class="door" data-i="2">🚪</button>
+          </div>
+          <div class="row">
+            <button id="stayBtn" disabled>Stay</button>
+            <button id="switchBtn" disabled>Switch</button>
+            <button id="montyReset">Reset</button>
+          </div>
+          <div class="stats">
+            <div>Games: <span id="mGames">0</span></div>
+            <div>Wins (Stay): <span id="mStayWins">0</span></div>
+            <div>Wins (Switch): <span id="mSwitchWins">0</span></div>
+          </div>
+          <div id="montyMsg" class="msg"></div>
+        </div>
+      </section>
+
+      <!-- Nonsense Button -->
+      <section id="nonsense" class="panel">
+        <h2>🌀 Nonsense Button</h2>
+        <p>Rules change randomly. Gain points… or lose them for absolutely no reason.</p>
+        <div class="nonsense">
+          <div class="score">Score: <span id="nScore">0</span></div>
+          <button id="nButton" class="big">Press Me?</button>
+          <div id="nMsg" class="msg"></div>
+          <button id="nReset">Reset</button>
+        </div>
+      </section>
+
+      <!-- Luck Lab -->
+      <section id="lucklab" class="panel">
+        <h2>🎰 Luck Lab (Unlogical-ish)</h2>
+        <p>Guess a number 1–10. But the lab sometimes “redefines” fairness.</p>
+        <div class="luck">
+          <input id="luckGuess" type="number" min="1" max="10" placeholder="1-10"/>
+          <button id="luckTry">Try</button>
+          <button id="luckNew">New Round</button>
+          <div id="luckMsg" class="msg"></div>
+          <div class="stats">
+            <div>Rounds: <span id="lRounds">0</span></div>
+            <div>Wins: <span id="lWins">0</span></div>
+            <div>“Rule Twists”: <span id="lTwists">0</span></div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
